@@ -1,0 +1,4 @@
+(tests
+  (names test_mix)
+  (deps sample.wav)
+  (libraries caml-libsdl2-mixer unix))
