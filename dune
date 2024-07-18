@@ -16,6 +16,7 @@
  (public_name caml-libsdl2-mixer)
  (libraries caml-libsdl2)
  (modes native)
+ (install_c_headers mix_stub)
  (foreign_stubs
   (language c)
   (names mix_stub)
