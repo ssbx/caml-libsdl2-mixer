@@ -6,7 +6,7 @@
 
 #include <SDL_mixer.h>
 #include "camlsdl2/audio_stub.h"
-#include "camlsdl2_mixer/mixer_stub.h"
+#include "camlsdl2_mixer/mix_stub.h"
 
 static Uint32
 Mix_InitFlags_val(value flag_list)
