@@ -1,4 +1,4 @@
-.PHONY: build test t clean dev_install fmt
+.PHONY: build test t clean dev_update fmt
 
 
 build:
@@ -19,8 +19,6 @@ fmt:
 doc:
 	dune build @doc && $(BROWSER) _build/default/_doc/_html/caml-sdl2-mixer/CamlSDL2_mixer/Mixer/index.html
 
-dev_install:
+dev_update:
 	opam install --working-dir ./caml-sdl2-mixer.opam
-
-remove:
 
