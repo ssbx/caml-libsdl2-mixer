@@ -1,6 +1,8 @@
 #ifndef _CAML_SDL_MIXER_
 #define _CAML_SDL_MIXER_
 
+#include <SDL_mixer.h>
+
 static value Val_Mix_Chunk(Mix_Chunk * p)
 {
     return caml_copy_nativeint((intnat) p);
