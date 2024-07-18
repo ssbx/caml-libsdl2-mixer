@@ -1,3 +1,5 @@
+open CamlSDL2
+
 (* general *)
 
 module InitFlags = struct

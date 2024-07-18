@@ -1,3 +1,6 @@
+
+open CamlSDL2
+
 (** Ocaml binding to libsdl2 mixer.  See
     {:https://www.libsdl.org/projects/old/SDL_mixer/docs/SDL_mixer_frame.html}
     for the documentation *)
@@ -80,6 +83,6 @@ external free_music : Music.t -> unit = "caml_Mix_FreeMusic"
 
 external play_music : Music.t -> loop:int -> unit = "caml_Mix_PlayMusic"
 
-(** {2:mus_play Stopping} *)
+(** {2:mus_stop Stopping} *)
 
 external fade_out_music : ms:int -> unit = "caml_Mix_FadeOutMusic"

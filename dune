@@ -12,14 +12,14 @@
     (system "echo -n '('; pkg-config --libs SDL2_mixer; echo -n ')'"))))
 
 (library
- (name mix)
- (public_name caml-libsdl2-mixer)
- (libraries caml-libsdl2)
+ (name camlSDL2_mixer)
+ (public_name caml-sdl2-mixer)
+ (libraries caml-sdl2)
  (modes native)
- (install_c_headers mix_stub)
+ (public_headers (glob_files camlsdl2_mixer/*.h))
  (foreign_stubs
   (language c)
-  (names mix_stub)
+  (names mixer_stub)
   (flags :standard (:include c_flags.sexp)))
  (c_library_flags (:include c_library.sexp)))
 

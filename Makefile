@@ -17,10 +17,10 @@ fmt:
 	@echo 'run "dune promote" to update files'
 
 doc:
-	dune build @doc && $(BROWSER) _build/default/_doc/_html/caml-libsdl2-mixer/Sdl_mixer/index.html
+	dune build @doc && $(BROWSER) _build/default/_doc/_html/caml-sdl2-mixer/CamlSDL2_mixer/Mixer/index.html
 
 dev_install:
-	opam install --working-dir ./caml-libsdl2-mixer.opam
+	opam install --working-dir ./caml-sdl2-mixer.opam
 
 remove:
 
