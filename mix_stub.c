@@ -195,6 +195,16 @@ caml_Mix_PlayingMusic(value unit)
     CAMLreturn(ret == 1 ? Val_true : Val_false);
 }
 
+CAMLprim value
+caml_Mix_RewindMusic(value unit)
+{
+    CAMLparam1(unit);
+    Mix_PlayingMusic();
+    CAMLreturn(Val_unit);
+}
+
+
+
 
 
 /* vim: set ts=4 sw=4 et: */
