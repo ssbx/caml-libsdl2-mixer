@@ -8,6 +8,23 @@
 #include "camlsdl2/audio_stub.h"
 #include "camlsdl2_mixer/mix_stub.h"
 
+const int caml_mix_fading_table[] = {
+    MIX_NO_FADING,
+    MIX_FADING_OUT,
+    MIX_FADING_IN
+};
+
+value
+Val_Mix_fading_t(int mix_fading)
+{
+    switch (mix_fading) {
+        case MIX_NO_FADING:  return Val_int(0);
+        case MIX_FADING_OUT: return Val_int(1);
+        case MIX_FADING_IN:  return Val_int(2);
+    }
+    caml_failwith("Val_Mix_fading_t");
+}
+
 static Uint32
 Mix_InitFlags_val(value flag_list)
 {
@@ -153,5 +170,15 @@ caml_Mix_FadeOutMusic(value ms)
         caml_failwith("caml_Mix_FadeOutMusic");
     CAMLreturn(Val_unit);
 }
+
+CAMLprim value
+caml_Mix_FadingMusic(value unit)
+{
+    CAMLparam1(unit);
+    int ret = Mix_FadingMusic();
+    CAMLreturn(Val_Mix_fading_t(ret));
+}
+
+
 
 /* vim: set ts=4 sw=4 et: */

@@ -53,11 +53,11 @@ external play_channel
 
 (* music *)
 
-module Music = struct
-  type t
-end
+module Music = struct type t end
+module FadingMusic = struct type t = NO_FADING | FADING_OUT | FADING_IN end
 
 external load_mus : string -> Music.t = "caml_Mix_LoadMUS"
 external free_music : Music.t -> unit = "caml_Mix_FreeMusic"
 external play_music : Music.t -> loop:int -> unit = "caml_Mix_PlayMusic"
 external fade_out_music : ms:int -> unit = "caml_Mix_FadeOutMusic"
+external fading_music : unit -> FadingMusic.t = "caml_Mix_FadingMusic"

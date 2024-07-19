@@ -1,4 +1,3 @@
-
 open CamlSDL2
 
 (** Ocaml binding to libsdl2 mixer.  See
@@ -17,8 +16,6 @@ module InitFlags : sig
 
   val test : unit -> unit
 end
-
-(** {2:gen_act Activation} *)
 
 module Default : sig
   val frequency : int
@@ -46,17 +43,10 @@ module Chunk : sig
   type t
 end
 
-(** {2:samples_loading Loading} *)
-
 external load_wav : string -> Chunk.t = "caml_Mix_LoadWAV"
-
-(** {2:samples_freeing Freeing} *)
-
 external free_chunk : Chunk.t -> unit = "caml_Mix_FreeChunk"
 
 (** {1:ch Channels} *)
-
-(** {2:ch_playing Playing} *)
 
 external play_channel
   :  channel:int
@@ -67,22 +57,11 @@ external play_channel
 
 (** {1:mus Music} *)
 
-module Music : sig
-  type t
-end
-
-(** {2:mus_load Loading} *)
+module Music : sig type t end
+module FadingMusic : sig type t = NO_FADING | FADING_OUT | FADING_IN end
 
 external load_mus : string -> Music.t = "caml_Mix_LoadMUS"
-
-(** {2:mus_free Free} *)
-
 external free_music : Music.t -> unit = "caml_Mix_FreeMusic"
-
-(** {2:mus_play Playing} *)
-
 external play_music : Music.t -> loop:int -> unit = "caml_Mix_PlayMusic"
-
-(** {2:mus_stop Stopping} *)
-
 external fade_out_music : ms:int -> unit = "caml_Mix_FadeOutMusic"
+external fading_music : unit -> FadingMusic.t = "caml_Mix_FadingMusic"
