@@ -44,12 +44,15 @@ external free_chunk : Chunk.t -> unit = "caml_Mix_FreeChunk"
 
 (* channels *)
 
-external play_channel
+external play_channel2
   :  channel:int
   -> chunk:Chunk.t
   -> loops:int
-  -> unit
+  -> int
   = "caml_Mix_PlayChannel"
+
+let play_channel ~channel ~chunk ~loops =
+  let _ = play_channel2 ~channel ~chunk ~loops in ()
 
 (* music *)
 

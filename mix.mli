@@ -48,12 +48,19 @@ external free_chunk : Chunk.t -> unit = "caml_Mix_FreeChunk"
 
 (** {1:ch Channels} *)
 
-external play_channel
+external play_channel2
+  :  channel:int
+  -> chunk:Chunk.t
+  -> loops:int
+  -> int
+  = "caml_Mix_PlayChannel"
+
+val play_channel
   :  channel:int
   -> chunk:Chunk.t
   -> loops:int
   -> unit
-  = "caml_Mix_PlayChannel"
+
 
 (** {1:mus Music} *)
 

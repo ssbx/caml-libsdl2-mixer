@@ -128,9 +128,8 @@ caml_Mix_PlayChannel(value channel, value chunk, value loops)
         Int_val(channel),
         Mix_Chunk_val(chunk),
         Int_val(loops));
-    if (ret == -1)
-        caml_failwith("caml_Mix_PlayChannel");
-    CAMLreturn(Val_unit);
+    if (ret == -1) caml_failwith("caml_Mix_PlayChannel");
+    CAMLreturn(Val_int(ret));
 }
 
 CAMLprim value
