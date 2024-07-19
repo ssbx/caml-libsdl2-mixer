@@ -203,6 +203,17 @@ caml_Mix_RewindMusic(value unit)
     CAMLreturn(Val_unit);
 }
 
+CAMLprim value
+caml_Mix_FadeInMusic(value music, value ms, value loop)
+{
+    CAMLparam3(music, ms, loop);
+    int ret = Mix_FadeInMusic(Mix_Music_val(music), Int_val(loop), Int_val(ms));
+    if (ret == -1)
+        caml_failwith("caml_Mix_FadeInMusic");
+
+    CAMLreturn(Val_unit);
+}
+
 
 
 
