@@ -187,6 +187,14 @@ caml_Mix_HaltMusic(value unit)
     CAMLreturn(Val_unit);
 }
 
+CAMLprim value
+caml_Mix_PlayingMusic(value unit)
+{
+    CAMLparam1(unit);
+    int ret = Mix_PlayingMusic();
+    CAMLreturn(Bool_val(ret));
+}
+
 
 
 /* vim: set ts=4 sw=4 et: */
