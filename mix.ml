@@ -44,7 +44,7 @@ external free_chunk : Chunk.t -> unit = "caml_Mix_FreeChunk"
 
 (* channels *)
 
-external play_channel2
+external play_channel_
   :  channel:int
   -> chunk:Chunk.t
   -> loops:int
@@ -52,7 +52,16 @@ external play_channel2
   = "caml_Mix_PlayChannel"
 
 let play_channel ~channel ~chunk ~loops =
-  let _ = play_channel2 ~channel ~chunk ~loops in ()
+  let _ = play_channel_ ~channel ~chunk ~loops in ()
+
+external fade_out_channel_
+  :  channel:int
+  -> ms:int
+  -> int
+  = "caml_Mix_FadeOutChannel"
+
+let fade_out_channel ~channel ~ms =
+  let _ = fade_out_channel_ ~channel ~ms in ()
 
 (* music *)
 

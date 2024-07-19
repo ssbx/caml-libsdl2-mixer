@@ -213,7 +213,13 @@ caml_Mix_FadeInMusic(value music, value ms, value loop)
     CAMLreturn(Val_unit);
 }
 
-
+CAMLprim value
+caml_Mix_FadeOutChannel(value channel, value ms)
+{
+    CAMLparam2(channel, ms);
+    int n = Mix_FadeOutChannel(Int_val(channel), Int_val(ms));
+    CAMLreturn(Val_int(n));
+}
 
 
 
