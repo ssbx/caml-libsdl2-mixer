@@ -179,6 +179,14 @@ caml_Mix_FadingMusic(value unit)
     CAMLreturn(Val_Mix_fading_t(ret));
 }
 
+CAMLprim value
+caml_Mix_HaltMusic(value unit)
+{
+    CAMLparam1(unit);
+    Mix_HaltMusic();
+    CAMLreturn(Val_unit);
+}
+
 
 
 /* vim: set ts=4 sw=4 et: */
