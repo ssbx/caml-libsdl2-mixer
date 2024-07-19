@@ -192,7 +192,7 @@ caml_Mix_PlayingMusic(value unit)
 {
     CAMLparam1(unit);
     int ret = Mix_PlayingMusic();
-    CAMLreturn(Bool_val(ret));
+    CAMLreturn(ret = 1 ? Val_true : Val_false);
 }
 
 
